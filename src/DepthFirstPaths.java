@@ -57,7 +57,7 @@ public class DepthFirstPaths {
     private boolean[] marked;    // marked[v] = is there an s-v path?
     private int[] edgeTo;        // edgeTo[v] = last edge on s-v path
     private final int s;         // source vertex
-    private List<Integer> aux_visitas; // NOVA: Ordem de visita
+    private List<Integer> aux_visita; // NOVA: Ordem de visita
 
     /**
      * Computes a path between {@code s} and every other vertex in {@code graph}.
@@ -69,15 +69,15 @@ public class DepthFirstPaths {
         this.s = s;
         edgeTo = new int[graph.V()];
         marked = new boolean[graph.V()];
-        aux_visitas = new ArrayList<>(); // Inicializa
+        aux_visita = new ArrayList<>(); // Inicializa
         validateVertex(s);
         dfs(graph, s);
     }
 
-    // depth first search from v
+   
     private void dfs(Graph graph, int v) {
         marked[v] = true;
-        aux_visitas.add(v); // REGISTRA: Ordem de visita na DFS
+        aux_visita.add(v); // REGISTRA: Ordem de visita na DFS
         for (int w : graph.adj(v)) {
             if (!marked[w]) {
                 edgeTo[w] = v;
@@ -150,8 +150,8 @@ public class DepthFirstPaths {
         }
     }
 
-    public Iterable<Integer> getVisitOrder() {
-    return aux_visitas;
+    public Iterable<Integer> get_aux_visita() {
+    return aux_visita;
     }
 
 }

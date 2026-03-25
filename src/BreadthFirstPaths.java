@@ -70,7 +70,7 @@ public class BreadthFirstPaths {
     private boolean[] marked;  
     private int[] edgeTo;      
     private int[] distTo;      
-    private List<Integer> aux_visita; Para guardar a ordem de visita
+    private List<Integer> aux_visita; // Para guardar a ordem de visita
 
     /**
      * Computes the shortest path between the source vertex {@code s}
@@ -298,7 +298,7 @@ public class BreadthFirstPaths {
         }
     }
     
-    public Iterable<Integer> getVisitOrder() {
+    public Iterable<Integer> get_aux_visita() {
         return aux_visita;
     }
 
