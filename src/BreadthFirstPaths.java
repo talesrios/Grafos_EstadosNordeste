@@ -62,12 +62,15 @@
  */
 
 import lib.*;
+import java.util.ArrayList; 
+import java.util.List;
 
 public class BreadthFirstPaths {
     private static final int INFINITY = Integer.MAX_VALUE;
-    private boolean[] marked;  // marked[v] = is there an s-v path
-    private int[] edgeTo;      // edgeTo[v] = previous edge on shortest s-v path
-    private int[] distTo;      // distTo[v] = number of edges shortest s-v path
+    private boolean[] marked;  
+    private int[] edgeTo;      
+    private int[] distTo;      
+    private List<Integer> aux_visita; Para guardar a ordem de visita
 
     /**
      * Computes the shortest path between the source vertex {@code s}
@@ -80,6 +83,7 @@ public class BreadthFirstPaths {
         marked = new boolean[graph.V()];
         distTo = new int[graph.V()];
         edgeTo = new int[graph.V()];
+        aux_visita = new ArrayList<>(); // Inicializa a lista
         validateVertex(s);
         bfs(graph, s);
 
@@ -118,6 +122,7 @@ public class BreadthFirstPaths {
 
         while (!queue.isEmpty()) {
             int v = queue.dequeue();
+            aux_visita.add(v); // REGISTRA: Vértice sendo visitado ao sair da fila
             for (int w : graph.adj(v)) {
                 if (!marked[w]) {
                     edgeTo[w] = v;
@@ -292,7 +297,10 @@ public class BreadthFirstPaths {
 
         }
     }
-
+    
+    public Iterable<Integer> getVisitOrder() {
+        return aux_visita;
+    }
 
 }
 
