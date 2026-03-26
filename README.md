@@ -62,4 +62,4 @@ O programa está configurado para leitura automática de arquivos na pasta `dado
 ---
 
 ## Link do vídeo da apresentação
-Link: https://drive.google.com/drive/folders/1A7jYakMTq-wYoHGJbEItcULdi6WQSK7q?usp=sharing
+Link: https://drive.google.com/drive/folders/1A7jYakMTq-wYoHGJbEItcULdi6WQSK7q?hl=pt-br
